@@ -1,0 +1,36 @@
+Here is a SQL query command to locate the top 5 customer among Rockbuster's highest markets based on country and city.
+
+"SELECT A.customer_id,B.first_name, B.last_name, E.country, D.city, SUM(A.amount)
+FROM payment A 
+INNER JOIN customer B ON A.customer_id = B.customer_id
+INNER JOIN address C ON B.address_id = C.address_id
+INNER JOIN city D ON C.city_id = D.city_id
+INNER JOIN country E ON D.country_id = E.country_id
+WHERE (E.country IN ('China', 'United States', 'Japan', 'Mexico', 'Brazil', 'Russian Federation',
+'Philippines', 'Turkey', 'Indonesia'))
+AND (D.city IN ('Aurora', 'Atlixco', 'Xintai', 'Adoni', 'Dhule (Dhulia)', 'Kurashiki',
+'Pingxiang', 'Sivas', 'Celaya', 'So Leopoldo'))
+GROUP BY A.customer_id,B.first_name, B.last_name, E.country, D.city
+ORDER BY SUM(A.amount) DESC
+LIMIT 5"					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
